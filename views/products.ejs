@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Product</title>
+</head>
+<body>
+  <h1>Products</h1> <!--Main Page Header-->
+  <ul>
+    <% products.forEach(product => { %>
+      <li>
+        <%= product.name %> - $<%= product.price %>
+        </li>
+    <% }); %>
+  </ul>
+  <h2>Add Product</h2>
+  <form action="/create-product" method="POST"> <!--References the /create-product desribed in app.js-->
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br><br> <!--Text type submission box-->
+
+    <label for="price">Price:</label>
+    <input type="number" id="price" name="price" required><br><br> <!--number type submission box-->
+
+    <button type="submit">Add Product</button> <!--button to submit to mysql db-->
+  </form>
+</body>
+</html>
